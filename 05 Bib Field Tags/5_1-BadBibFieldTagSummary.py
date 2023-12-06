@@ -1,8 +1,8 @@
 import psycopg2
 import csv
-from postgresql_password import postgresql_password
+#from postgresql_password import postgresql_password
 
-report = 'I:/SQL Queries/Code verification working files/5_1-BadBibFieldTagSummary.csv'
+report = 'C:\Users\mohaibra\Downloads\5_1-BadBibFieldTagSummary.csv'
 
 query = """
 SELECT
@@ -40,7 +40,7 @@ GROUP BY v.varfield_type_code, v.marc_tag
 ORDER BY v.marc_tag, v.varfield_type_code ASC;
     """
 
-conn = psycopg2.connect(host="sierra-db.library.unt.edu", port="1032", database="iii", user="swolf", password=postgresql_password)
+conn = psycopg2.connect(host="aurar-db.iii.com", port="1032", database="iii", user="imohamed", password=postgresql_password)
 
 cur = conn.cursor()
 cur.execute(query)
